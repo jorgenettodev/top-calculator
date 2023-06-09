@@ -31,4 +31,50 @@ function operate(operator, numberA, numberB) {
     return operator(numberA, numberB);
 };
 
-console.log(operate(add,5,10));
+
+// ### 5. Functions that populate the display when the numbers are clicked.
+
+let display = document.querySelector('#displayValue');
+let displayValue = display.innerText;
+
+let buttons = document.querySelector('.buttons');
+
+buttons.addEventListener('click', (e) => {
+   
+
+    if (e.target.dataset.type != 'number') {
+        return;
+    };
+
+    if (e.target.dataset.id == 'backspace') {
+        return;
+    };
+
+    if(e.target.classList[1] == 'operator') {
+        return;
+    };
+
+
+   if (display.innerText == 0) {
+       display.innerText = e.target.textContent;
+   } else {
+    display.innerText += e.target.textContent; 
+   };
+
+    
+});
+
+buttons.addEventListener('click', clear);
+buttons.addEventListener('click', backspace);
+
+function clear(e) {
+    if (e.target.dataset.id == 'clear') {
+        display.innerHTML = 0;
+    }
+};
+
+function backspace(e) {
+    if (e.target.dataset.id == 'backspace') {
+        
+    }
+};

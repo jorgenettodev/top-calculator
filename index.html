@@ -11,33 +11,35 @@
     <div class="container">
         <div class="display">
             <div display__text>
-                <span class="display__value">95</span>
+                <div class="display__value" id="displayValue">0</div>
             </div>
         </div>
 
         <div class="buttons">
             <div class="buttons__clear">
-                <div class="button" data-id="clear">C</div>
-                <div class="button" data-id="backspace"><-</div>
+                <div class="button" data-id="clear">AC</div>
+                <div class="button" data-id="backspace">
+                    <img src="./assets/backspace.png" class="backspace" height="40px">
+                </div>
             </div>
 
             <div class="grid">
-                <div class="button" data-id="7">7</div>
-                <div class="button" data-id="8">8</div>
-                <div class="button" data-id="9">9</div>
-                <div class="button operator" data-id="add">+</div>
-                <div class="button" data-id="4">4</div>
-                <div class="button" data-id="5">5</div>
-                <div class="button" data-id="6">6</div>
-                <div class="button operator" data-id="subtract">-</div>
-                <div class="button" data-id="1">1</div>
-                <div class="button" data-id="2">2</div>
-                <div class="button" data-id="3">3</div>
-                <div class="button operator" data-id="multiply">*</div>
-                <div class="button" data-id="decimal">.</div>
-                <div class="button" data-id="0">0</div>
-                <div class="button operator equals" data-id="equals">=</div>
-                <div class="button operator divide" data-id="divide">/</div>
+                <button class="button" data-id="7" data-type="number">7</button>
+                <button class="button" data-id="8" data-type="number">8</button>
+                <button class="button" data-id="9" data-type="number">9</button>
+                <button class="button operator" data-id="add">+</button>
+                <button class="button" data-id="4" data-type="number">4</button>
+                <button class="button" data-id="5" data-type="number">5</button>
+                <button class="button" data-id="6" data-type="number">6</button>
+                <button class="button operator" data-id="subtract">-</button>
+                <button class="button" data-id="1" data-type="number">1</button>
+                <button class="button" data-id="2" data-type="number">2</button>
+                <button class="button" data-id="3" data-type="number">3</button>
+                <button class="button operator" data-id="multiply">*</button>
+                <button class="button" data-id="decimal">.</button>
+                <button class="button" data-id="0" data-type="number">0</button>
+                <button class="button operator equals" data-id="equals">=</button>
+                <button class="button operator divide" data-id="divide">/</button>
             </div>
 
         </div>
