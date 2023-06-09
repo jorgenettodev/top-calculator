@@ -65,16 +65,28 @@ buttons.addEventListener('click', (e) => {
 });
 
 buttons.addEventListener('click', clear);
-buttons.addEventListener('click', backspace);
 
+// When the 'AC' button is clicked, the display value becomes zero '0';
 function clear(e) {
     if (e.target.dataset.id == 'clear') {
-        display.innerHTML = 0;
+        display.innerText = 0;
     }
 };
 
-function backspace(e) {
-    if (e.target.dataset.id == 'backspace') {
-        
-    }
+
+
+function backspace() {
+    // let displayString = display.innerText;
+    // displayString = displayString.substring(0, displayString.length - 1);
+    // display.innerText = displayString;
+
+    // selecione a string (neste caso, o valor do display)
+    let str = display.innerText;
+    // Usando o método string.slice, remova o último caractere usando length -1
+    str = str.slice(0, str.length -1);
+    // atualiza o display para que ele seja o novo número.
+    display.innerText = str;
 };
+
+const btnBackspace = document.querySelector('#btnBackspace');
+btnBackspace.addEventListener('click', backspace);
