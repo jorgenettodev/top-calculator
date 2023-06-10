@@ -50,9 +50,6 @@ function clear(e) {
 // # <
 
 function backspace() {
-    // let displayString = display.innerText;
-    // displayString = displayString.substring(0, displayString.length - 1);
-    // display.innerText = displayString;
 
     // selecione a string (neste caso, o valor do display)
     let str = display.innerText;
