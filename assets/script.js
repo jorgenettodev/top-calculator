@@ -1,22 +1,10 @@
 // ########### ASSIGNMENTS 
 
+// Import the js files
+import { add, subtract, multiply, divide } from './mathOperations.js';
+import './ui.js';
+
 // ### 1. Create a function for each of the four basic math operations;
-
-function add(a,b) {
-    return a + b;
-};
-
-function subtract(a,b) {
-    return a - b;
-};
-
-function multiply(a,b) {
-    return a * b;
-};
-
-function divide(a,b) {
-    return a/b;
-};
 
 // ### 2. Create three variables, one for each part of a simple calculation. 
 
