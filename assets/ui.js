@@ -47,6 +47,11 @@ function clear(e) {
     if (e.target.dataset.id == 'clear') {
         display.innerText = 0;
     }
+    firstNumber = null;
+    secondNumber = null;
+    display.innerText = 0;
+    operator = null;
+    console.clear();
 };
 
 
@@ -65,11 +70,10 @@ function backspace() {
 
 // ## Math Ops Functionalities 
 
-// Add
-
 let firstNumber = null;
 let secondNumber = null;
 let operator = null;
+// Add
 
 btnAdd.addEventListener('click', (e) => {
     if (firstNumber == null) {
@@ -79,47 +83,85 @@ btnAdd.addEventListener('click', (e) => {
     operator = add;
     // console.log(display.innerText);
 
+    if (secondNumber == 0) {
+        display.innerText = 0;
+    }
 
 });
 
+// Subtract
 btnSubtract.addEventListener('click', (e) => {
     if (firstNumber == null) {
         firstNumber = parseFloat(display.innerText);
         display.innerText = 0;
     }
     console.log('subtract');
+
+    if (secondNumber == 0) {
+        display.innerText = 0;
+    }
     return operator = subtract;
+
 });
 
+// Multiply
 btnMultiply.addEventListener('click', (e) => {
     if (firstNumber == null) {
         firstNumber = parseFloat(display.innerText);
         display.innerText = 0;
     }
     console.log('multiply');
+    if (secondNumber == 0) {
+        display.innerText = 0;
+    }
     return operator = multiply;
 });
 
+// Divide
 btnDivide.addEventListener('click', (e) => {
     if (firstNumber == null) {
         firstNumber = parseFloat(display.innerText);
         display.innerText = 0;
     }
     console.log('divide');
+
+    if (secondNumber == 0) {
+        display.innerText = 0;
+    }
     return operator = divide;
 });
 
 btnEquals.addEventListener('click', (e) => {
+    // Handles division by zero:
+    
+    
     if (secondNumber == null) {
         secondNumber = parseFloat(display.innerText);
+    } else if (secondNumber == 0) {
+        secondNumber = parseFloat(display.innerText);
     }
+
+    if (secondNumber == 0 && operator == divide) {
+        return alert('you cant divide by zero.');
+
+    };
+
+
     console.log(`the first number is ${firstNumber}.`)
     console.log(`the second number is: ${secondNumber}.`);
     console.log(`the full operation is: = ${firstNumber} (+,-,*,/) ${secondNumber}`)
     let result = operate(operator, firstNumber, secondNumber);
     console.log(`the result is: ${result}`);
     display.innerText = result;
-} )
+
+    if (result != null) {
+        firstNumber = result;
+        secondNumber = 0;
+        return firstNumber;
+    }
+
+
+} );
 
 
 // Event Listeners
