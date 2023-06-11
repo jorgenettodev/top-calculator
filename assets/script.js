@@ -4,13 +4,11 @@
 import { add, subtract, multiply, divide } from './mathOperations.js';
 import './ui.js';
 
-// ### 1. Create a function for each of the four basic math operations;
-
 // ### 2. Create three variables, one for each part of a simple calculation. 
 
-let firstNumber;
-let secondNumber;
-let operator;
+let firstNumber = null;
+let secondNumber = null;
+let operator = null;
 
 // // ### 3. Create a function 'operate' that takes one operator and two numbers and calls one of the functions created earlier.
 
