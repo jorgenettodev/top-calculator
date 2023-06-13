@@ -151,12 +151,11 @@ btnBackspace.addEventListener('click', backspace);
 // Handlers and verifications
 
 function handleFirstNumber() {
-    if (firstNumber == null) {
         firstNumber = parseFloat(display.innerText);
         display.innerText = 0;
     } 
     
-}
+
 
 function handleSecondNumber() {
 
