@@ -74,52 +74,16 @@ let firstNumber = null;
 let secondNumber = null;
 let operator = null;
 // Add
-
-btnAdd.addEventListener('click', (e) => {
-    handleFirstNumber();
-    console.log(display.innerText);
-    
-    if (secondNumber == 0) {
-        display.innerText = 0;
-    }
-    
-    operator = add;
-});
+btnAdd.addEventListener('click', handleFullOperation);
 
 // Subtract
-btnSubtract.addEventListener('click', (e) => {
-    
-    handleFirstNumber();
-    console.log('subtract');
-
-    if (secondNumber == 0) {
-        display.innerText = 0;
-    }
-    return operator = subtract;
-
-});
+btnSubtract.addEventListener('click', handleFullOperation);
 
 // Multiply
-btnMultiply.addEventListener('click', (e) => {
-    handleFirstNumber();
-    console.log('multiply');
-    if (secondNumber == 0) {
-        display.innerText = 0;
-    }
-    return operator = multiply;
-});
+btnMultiply.addEventListener('click', handleFullOperation);
 
 // Divide
-btnDivide.addEventListener('click', (e) => {
-    
-    handleFirstNumber();
-    console.log('divide');
-
-    if (secondNumber == 0) {
-        display.innerText = 0;
-    }
-    return operator = divide;
-});
+btnDivide.addEventListener('click', handleFullOperation);
 
 btnEquals.addEventListener('click', (e) => {
     
@@ -171,5 +135,38 @@ function handleFirstNumber() {
     if (firstNumber == null) {
         firstNumber = parseFloat(display.innerText);
         display.innerText = 0;
+    };
+
+    
+}
+
+function handleSecondNumber() {
+    if (secondNumber == 0) {
+        display.innerText = 0;
+    };
+}
+
+function handleOperator(e) {
+    let currentOperator = e.target.dataset.id;
+    
+    switch(currentOperator) {
+        case 'add':
+            operator = add;
+            break;
+        case 'subtract':
+            operator = subtract;
+            break;
+        case 'multiply':
+            operator = multiply;
+            break;
+        case 'divide':
+            operator = divide;
+            break;
     }
+}
+
+function handleFullOperation(e) {
+    handleFirstNumber();
+    handleSecondNumber();
+    handleOperator(e);
 }
