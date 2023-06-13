@@ -1,6 +1,12 @@
 // Import the math operations functions
 import { add, subtract, multiply, divide } from './mathOperations.js';
 import { operate } from './script.js';
+
+let firstNumber = null;
+let secondNumber = null;
+let operator = null;
+
+
 // gets the display div.
 let display = document.querySelector('#displayValue');
 
@@ -82,9 +88,7 @@ function addDecimal(e) {
 
 // ## Math Ops Functionalities 
 
-let firstNumber = null;
-let secondNumber = null;
-let operator = null;
+
 // Add
 btnAdd.addEventListener('click', handleFullOperation);
 // Subtract
@@ -114,18 +118,21 @@ btnEquals.addEventListener('click', (e) => {
 
     console.log(`the first number is ${firstNumber}.`)
     console.log(`the second number is: ${secondNumber}.`);
-    console.log(`the full operation is: = ${firstNumber} (+,-,*,/) ${secondNumber}`)
+    console.log(`the full operation is: = ${firstNumber} ${operator} ${secondNumber}`)
     let result = operate(operator, firstNumber, secondNumber);
-    result = result.toFixed(2);
     console.log(`the result is: ${result}`);
-    display.innerText = result;
 
+    display.innerText = formatResult(result);
+
+    // Checks if the result is not null (the initial value.) If its not, then use it as the firstNumber for consecutive operations.
     if (result != null) {
         firstNumber = result;
         secondNumber = 0;
         return firstNumber;
     }
 
+    // after finishing the operation, the operator returns to null;
+    operator = null;
 
 } );
 
@@ -147,18 +154,25 @@ function handleFirstNumber() {
     if (firstNumber == null) {
         firstNumber = parseFloat(display.innerText);
         display.innerText = 0;
-    };
-
+    } 
     
 }
 
 function handleSecondNumber() {
+
+    
+
     if (secondNumber == 0) {
         display.innerText = 0;
     };
+
+    
+
 }
 
 function handleOperator(e) {
+
+
     let currentOperator = e.target.dataset.id;
     
     switch(currentOperator) {
@@ -181,4 +195,15 @@ function handleFullOperation(e) {
     handleFirstNumber();
     handleSecondNumber();
     handleOperator(e);
+}
+
+function formatResult(result) {
+    // Checks if the rest of the division of the result divided by 1 is not zero.
+    if (result % 1 !== 0) {
+        // if yes, then use only 2 decimal points.
+        return parseFloat(result.toFixed(2));
+    }
+
+    // If not, thant do nothing.
+    return result;
 }
