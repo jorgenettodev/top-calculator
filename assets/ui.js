@@ -76,25 +76,20 @@ let operator = null;
 // Add
 
 btnAdd.addEventListener('click', (e) => {
-    if (firstNumber == null) {
-        firstNumber = parseFloat(display.innerText);
-        display.innerText = 0;
-    }
-    operator = add;
-    // console.log(display.innerText);
-
+    handleFirstNumber();
+    console.log(display.innerText);
+    
     if (secondNumber == 0) {
         display.innerText = 0;
     }
-
+    
+    operator = add;
 });
 
 // Subtract
 btnSubtract.addEventListener('click', (e) => {
-    if (firstNumber == null) {
-        firstNumber = parseFloat(display.innerText);
-        display.innerText = 0;
-    }
+    
+    handleFirstNumber();
     console.log('subtract');
 
     if (secondNumber == 0) {
@@ -106,10 +101,7 @@ btnSubtract.addEventListener('click', (e) => {
 
 // Multiply
 btnMultiply.addEventListener('click', (e) => {
-    if (firstNumber == null) {
-        firstNumber = parseFloat(display.innerText);
-        display.innerText = 0;
-    }
+    handleFirstNumber();
     console.log('multiply');
     if (secondNumber == 0) {
         display.innerText = 0;
@@ -119,10 +111,8 @@ btnMultiply.addEventListener('click', (e) => {
 
 // Divide
 btnDivide.addEventListener('click', (e) => {
-    if (firstNumber == null) {
-        firstNumber = parseFloat(display.innerText);
-        display.innerText = 0;
-    }
+    
+    handleFirstNumber();
     console.log('divide');
 
     if (secondNumber == 0) {
@@ -132,7 +122,6 @@ btnDivide.addEventListener('click', (e) => {
 });
 
 btnEquals.addEventListener('click', (e) => {
-    // Handles division by zero:
     
     
     if (secondNumber == null) {
@@ -140,7 +129,8 @@ btnEquals.addEventListener('click', (e) => {
     } else if (secondNumber == 0) {
         secondNumber = parseFloat(display.innerText);
     }
-
+    
+    // Handles division by zero:
     if (secondNumber == 0 && operator == divide) {
         return alert('you cant divide by zero.');
 
@@ -174,3 +164,12 @@ btnClear.addEventListener('click', clear);
 
 // Event listener for the 'backspace button';
 btnBackspace.addEventListener('click', backspace);
+
+// Handlers and verifications
+
+function handleFirstNumber() {
+    if (firstNumber == null) {
+        firstNumber = parseFloat(display.innerText);
+        display.innerText = 0;
+    }
+}
