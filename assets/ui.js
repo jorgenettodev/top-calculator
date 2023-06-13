@@ -68,6 +68,18 @@ function backspace() {
     display.innerText = str;
 };
 
+const btnDecimal = document.querySelector('#btnDecimal');
+btnDecimal.addEventListener('click', addDecimal);
+function addDecimal(e) {
+
+
+    // Check if the display already have a decimal point.
+    if (!display.innerText.includes('.')) {
+        // Appends the decimal point to the display.
+        display.innerText += '.';
+    }
+}
+
 // ## Math Ops Functionalities 
 
 let firstNumber = null;
@@ -75,7 +87,6 @@ let secondNumber = null;
 let operator = null;
 // Add
 btnAdd.addEventListener('click', handleFullOperation);
-
 // Subtract
 btnSubtract.addEventListener('click', handleFullOperation);
 
@@ -105,6 +116,7 @@ btnEquals.addEventListener('click', (e) => {
     console.log(`the second number is: ${secondNumber}.`);
     console.log(`the full operation is: = ${firstNumber} (+,-,*,/) ${secondNumber}`)
     let result = operate(operator, firstNumber, secondNumber);
+    result = result.toFixed(2);
     console.log(`the result is: ${result}`);
     display.innerText = result;
 
