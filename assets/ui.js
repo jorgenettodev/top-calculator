@@ -36,7 +36,7 @@ function regularNumbers(e) {
     };
     
     // if the display value is currently zero, than update to the number clicked;
-    if (display.innerText == 0) {
+    if (display.innerText == 0 && !display.innerText.includes('.')) {
         display.innerText = e.target.textContent;
     } else { // if not zero, than concatenate with the next clicked number.
         display.innerText += e.target.textContent; 
@@ -225,6 +225,10 @@ function handleKeyboardInput(event) {
   allButtons.forEach(button => {
     if (button.dataset.id === key || button.dataset.key === key) {
       button.click();
+    }
+
+    if (key == ',' && button.dataset.key === '.') {
+        button.click();
     }
 
   });
