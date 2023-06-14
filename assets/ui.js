@@ -219,14 +219,20 @@ document.addEventListener('keydown', handleDigitInput);
 function handleDigitInput(event) {
   const key = event.key;
 
+  console.log(event.key)
   // Percorre todos os botões e verifica se a keydown corresponde ao dataset.id do botão
   allButtons.forEach(button => {
     if (button.dataset.id === key) {
       button.click();
     }
+
+    // if (key === '+' && button.dataset.key == '+') {
+    //     button.click();
+    // }
+
+    if (button.dataset.key === key) {
+        button.click();
+    }
+
   });
-}
-
-function handleOperatorsInput(event) {
-
 }
