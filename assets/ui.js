@@ -119,6 +119,8 @@ btnEquals.addEventListener('click', (e) => {
     console.log(`the first number is ${firstNumber}.`)
     console.log(`the second number is: ${secondNumber}.`);
     console.log(`the full operation is: = ${firstNumber} ${operator} ${secondNumber}`)
+
+
     let result = operate(operator, firstNumber, secondNumber);
     console.log(`the result is: ${result}`);
 
@@ -213,26 +215,17 @@ function formatResult(result) {
 const allButtons = document.querySelectorAll('.button');
 
 // Adiciona o evento keydown ao documento
-document.addEventListener('keydown', handleDigitInput);
+document.addEventListener('keydown', handleKeyboardInput);
 
 // Função para lidar com o evento digitInput
-function handleDigitInput(event) {
+function handleKeyboardInput(event) {
   const key = event.key;
 
-  console.log(event.key)
-  // Percorre todos os botões e verifica se a keydown corresponde ao dataset.id do botão
+  // Percorre todos os botões e verifica se a keydown corresponde ao dataset.id ou dataset.key
   allButtons.forEach(button => {
     if (button.dataset.id === key || button.dataset.key === key) {
       button.click();
     }
-
-    // if (key === '+' && button.dataset.key == '+') {
-    //     button.click();
-    // }
-
-    // if (button.dataset.key === key) {
-    //     button.click();
-    // }
 
   });
 }
