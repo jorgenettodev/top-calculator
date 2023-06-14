@@ -206,3 +206,27 @@ function formatResult(result) {
     // If not, thant do nothing.
     return result;
 }
+
+// Keyboard events
+
+// Seleciona todos os botões existentes
+const allButtons = document.querySelectorAll('.button');
+
+// Adiciona o evento keydown ao documento
+document.addEventListener('keydown', handleDigitInput);
+
+// Função para lidar com o evento digitInput
+function handleDigitInput(event) {
+  const key = event.key;
+
+  // Percorre todos os botões e verifica se a keydown corresponde ao dataset.id do botão
+  allButtons.forEach(button => {
+    if (button.dataset.id === key) {
+      button.click();
+    }
+  });
+}
+
+function handleOperatorsInput(event) {
+
+}
