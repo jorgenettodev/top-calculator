@@ -222,7 +222,7 @@ function handleDigitInput(event) {
   console.log(event.key)
   // Percorre todos os botões e verifica se a keydown corresponde ao dataset.id do botão
   allButtons.forEach(button => {
-    if (button.dataset.id === key) {
+    if (button.dataset.id === key || button.dataset.key === key) {
       button.click();
     }
 
@@ -230,9 +230,9 @@ function handleDigitInput(event) {
     //     button.click();
     // }
 
-    if (button.dataset.key === key) {
-        button.click();
-    }
+    // if (button.dataset.key === key) {
+    //     button.click();
+    // }
 
   });
 }
